@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="We can start with a simple example: predicting house price.  House PriceSupposing we have a dataset of house price:    x (size of the house) y(price)     30 62   35 83   58 90   79 124   92 150   125">
+<meta name="description" content="These notes are taken from the Coursera open course Netural Networks and Deep Learning. Therefore here are only some important concepts that helped me to understand the materials.  This note will intr">
 <meta name="keywords" content="python,Coursera">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Deep Learning">
+<meta property="og:title" content="Neural Networks and Deep Learning - 1. Introduction to Deep Learning">
 <meta property="og:url" content="http://github.com/alfmunny/2018/04/10/deeplearning-introduction/index.html">
 <meta property="og:site_name" content="In The Shell">
-<meta property="og:description" content="We can start with a simple example: predicting house price.  House PriceSupposing we have a dataset of house price:    x (size of the house) y(price)     30 62   35 83   58 90   79 124   92 150   125">
+<meta property="og:description" content="These notes are taken from the Coursera open course Netural Networks and Deep Learning. Therefore here are only some important concepts that helped me to understand the materials.  This note will intr">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://github.com/alfmunny/2018/04/10/deeplearning-introduction/image-20180410181806109.png">
 <meta property="og:image" content="http://github.com/alfmunny/2018/04/10/deeplearning-introduction/image-20180410194650766.png">
 <meta property="og:image" content="http://github.com/alfmunny/2018/04/10/deeplearning-introduction/image-20180410200431559.png">
-<meta property="og:updated_time" content="2018-04-10T18:17:59.165Z">
+<meta property="og:updated_time" content="2018-04-11T12:17:34.957Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Introduction to Deep Learning">
-<meta name="twitter:description" content="We can start with a simple example: predicting house price.  House PriceSupposing we have a dataset of house price:    x (size of the house) y(price)     30 62   35 83   58 90   79 124   92 150   125">
+<meta name="twitter:title" content="Neural Networks and Deep Learning - 1. Introduction to Deep Learning">
+<meta name="twitter:description" content="These notes are taken from the Coursera open course Netural Networks and Deep Learning. Therefore here are only some important concepts that helped me to understand the materials.  This note will intr">
 <meta name="twitter:image" content="http://github.com/alfmunny/2018/04/10/deeplearning-introduction/image-20180410181806109.png">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>Introduction to Deep Learning | In The Shell</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Neural Networks and Deep Learning - 1. Introduction to Deep Learning | In The Shell</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Introduction to Deep Learning</h1>
+          <h1 class="post-title" itemprop="name headline">Neural Networks and Deep Learning - 1. Introduction to Deep Learning</h1>
         
 
         <div class="post-meta">
@@ -367,7 +367,9 @@
       
 
       
-        <p>We can start with a simple example: predicting house price. </p>
+        <p>These notes are taken from the Coursera open course <a href="https://www.coursera.org/learn/neural-networks-deep-learning/home/welcome" target="_blank" rel="noopener">Netural Networks and Deep Learning</a>. Therefore here are only some important concepts that helped me to understand the materials. </p>
+<p>This note will introduce what is a neuron in Neural Networks.</p>
+<p>We can start with a simple example: predicting house price. </p>
 <h2 id="House-Price"><a href="#House-Price" class="headerlink" title="House Price"></a>House Price</h2><p>Supposing we have a dataset of house price:</p>
 <table>
 <thead>
@@ -404,15 +406,16 @@
 </tbody>
 </table>
 <p><img src="image-20180410181806109.png" alt="Prediction of House Price"></p>
-<p>The blue line in the plot is to fit the points.</p>
-<p>We can write the function in two parts: A linear function and a activation function.</p>
-<p>According to the data, we can calculate the slope and the  </p>
-<p>Linear function: $f(x) = Wx + b = 2.3x - 46$ </p>
-<p>Activation function: $f(z) = max(z, 0)$, any input smaller than zero will output zero</p>
-<p>Combine these two:<br>$$<br>f(x) = max(Wx+b, 0)<br>$$<br>A neuron is like this function. It accepts the input x, and give the output y.</p>
+<p>The blue line in the plot is drawn to fit the points.</p>
+<p>We can describe the blue line as a function in two parts: A linear function and a activation function.</p>
+<p>According to the data, we can calculate the weight W and the bias b</p>
+<p>Linear function:<br>$$<br>f(x) = Wx + b = 2.3x - 46<br>$$<br>Activation function:</p>
+<p>$$<br>f(z) = max(z, 0)<br>$$<br>Any input smaller than zero will output zero.</p>
+<p>Combine these two:<br>$$<br>f(x) = max(Wx+b, 0)<br>$$<br>A neuron is just like this function. It accepts the input x, and give the output y. It uses the activation function to transfer the linear interpolation of the points to a non-linear interpolation. </p>
 <p><img src="image-20180410194650766.png" alt="image-20180410194650766"></p>
-<p>$f(z) = max(z, 0)$ is called <strong>Rectified Linear Unit</strong> (ReLU), which is used as activation function.</p>
-<p>A Neural Network is to connect neurons with diffrent input dimensons and parameters.</p>
+<p>$f(z) = max(z, 0)$ is called <strong>Rectified Linear Unit</strong> (ReLU), which is used as activation function. There are some other activation funciton like sigmoid, tanh, leaky ReLu etc. They will be discussed in following articles.</p>
+<p>Provided this single neuron model, we can predict the price at a given x, here the size of the house.fg</p>
+<p>A Neural Network is to connect these neurons with diffrent input dimensons and parameters.</p>
 <p><img src="image-20180410200431559.png" alt="image-20180410200431559"></p>
 <h2 id="Standard-NN-CNN-and-RNN"><a href="#Standard-NN-CNN-and-RNN" class="headerlink" title="Standard NN, CNN and RNN"></a>Standard NN, CNN and RNN</h2><p>Convolutional Neural Network can be used on image problems.</p>
 <p>Recurrent Neural Network can be used on audio problems.</p>
